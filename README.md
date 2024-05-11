@@ -4,3 +4,9 @@
 A very ugly CLI application for interacting with the CipherCord API.
 
 [CipherCord](https://github.com/ciphercord) is infrastructure that relies on Discord to create encrypted chat applications.
+
+## Installing
+
+```bash
+go install github.com/ciphercord/ciphercord-cli@latest
+```
