@@ -237,6 +237,7 @@ func command(s string) {
 		println("/name <name> Set your nickname")
 		println("/room <room> Move rooms")
 		println("/key <key>   Change encryption key")
+		println("/exit        Quit the program")
 	} else if str, found := strings.CutPrefix(s, "/name "); found {
 		name = str
 	} else if str, found := strings.CutPrefix(s, "/room "); found {
