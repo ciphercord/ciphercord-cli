@@ -110,14 +110,63 @@ read:
 		case keyboard.KeyDelete:
 			if len(input) > 0 {
 				var newInput []byte
+
 				for i, r := range input {
 					if i != cursorPos {
 						newInput = append(newInput, r)
 					}
 				}
+
 				input = newInput
 			}
-		case keyboard.KeyCtrlC:
+		case keyboard.KeyCtrlA:
+			cursorPos = 0
+			prompt()
+		case keyboard.KeyCtrlE:
+			cursorPos = len(input)
+			prompt()
+		case keyboard.KeyCtrlU:
+			var cursorPosBuf = cursorPos
+			var newInput []byte
+
+			for i, r := range input {
+				if i >= cursorPosBuf {
+					newInput = append(newInput, r)
+				} else {
+					cursorPos--
+				}
+			}
+
+			input = newInput
+		case keyboard.KeyCtrlK:
+			var cursorPosBuf = cursorPos
+			var newInput []byte
+
+			for i, r := range input {
+				if i < cursorPosBuf {
+					newInput = append(newInput, r)
+				}
+			}
+
+			input = newInput
+		case keyboard.KeyCtrlW:
+			var cursorPosBuf = cursorPos
+			if cursorPosBuf > 0 {
+				for {
+					cursorPosBuf--
+					if cursorPosBuf == 0 || input[cursorPosBuf-1] == ' ' {
+						break
+					}
+				}
+
+				cursorPos = cursorPosBuf
+				input = input[:cursorPosBuf]
+			}
+		case keyboard.KeyCtrlL:
+			fmt.Print("\x1b[2J")
+			fmt.Print("\x1b[H")
+			prompt()
+		case keyboard.KeyCtrlC, keyboard.KeyCtrlD:
 			exit()
 		default:
 			if key == keyboard.KeySpace || r == 0 {
