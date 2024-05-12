@@ -286,6 +286,7 @@ func receiving() {
 }
 
 func exit() {
+	// FIXME: Make this better:
 	wg.Done()
 	wg.Done()
 }
