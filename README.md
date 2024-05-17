@@ -1,6 +1,3 @@
->[!WARNING]
-> CipherCord is unfortunately put on a temporary hold until I receive confirmation from the Discord support team about recent concerns about having a public bot token.
-
 # CipherCord CLI [![MIT License](https://img.shields.io/badge/License-MIT-a10b31)](https://github.com/ciphercord/ciphercord-cli/blob/main/LICENSE)
 
 A very functional CLI application for interacting with the CipherCord API.
