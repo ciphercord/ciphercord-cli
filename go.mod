@@ -3,7 +3,7 @@ module github.com/ciphercord/ciphercord-cli
 go 1.22.2
 
 require (
-	github.com/ciphercord/gophercord v0.0.0-20240511190305-693ab8f236ac
+	github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda
 	github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203
 	golang.org/x/term v0.20.0
 )
