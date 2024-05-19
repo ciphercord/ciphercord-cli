@@ -75,6 +75,7 @@ read:
 		prompt()
 
 		// FIXME: this is horribly broken (half of the keys on the keyboard dont register). someone choose a different package.
+		// also why r == 0 is space (because its broken)
 		r, key, err := keyboard.GetKey()
 		if err != nil {
 			clsl()
