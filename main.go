@@ -73,9 +73,6 @@ func main() {
 func read() {
 read:
 	for {
-		if cursorPos > len(input) {
-			cursorPos = len(input)
-		}
 		prompt()
 
 		r, key, err := keyboard.GetKey()
@@ -150,18 +147,31 @@ read:
 
 			input = newInput
 		case keyboard.KeyCtrlW:
-			var cursorPosBuf = cursorPos
-			if cursorPosBuf > 0 {
-				for {
-					cursorPosBuf--
-					if cursorPosBuf == 0 || input[cursorPosBuf-1] == ' ' {
-						break
-					}
-				}
+			var from int
+			var to int = cursorPos
+			from = to
 
-				cursorPos = cursorPosBuf
-				input = input[:cursorPosBuf]
+			if cursorPos == 0 {
+				continue
 			}
+
+			for {
+				from--
+				if from == 0 || input[from-1] == ' ' {
+					break
+				}
+			}
+
+			var newInput []byte
+
+			for i, r := range input {
+				if i < from || i >= to {
+					newInput = append(newInput, r)
+				}
+			}
+
+			input = newInput
+			cursorPos = from
 		case keyboard.KeyCtrlL:
 			fmt.Print("\x1b[2J")
 			fmt.Print("\x1b[H")
