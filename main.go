@@ -118,10 +118,8 @@ read:
 			}
 		case keyboard.KeyCtrlA:
 			cursorPos = 0
-			prompt()
 		case keyboard.KeyCtrlE:
 			cursorPos = len(input)
-			prompt()
 		case keyboard.KeyCtrlU:
 			var cursorPosBuf = cursorPos
 			var newInput []byte
@@ -175,7 +173,6 @@ read:
 		case keyboard.KeyCtrlL:
 			fmt.Print("\x1b[2J")
 			fmt.Print("\x1b[H")
-			prompt()
 		case keyboard.KeyCtrlC, keyboard.KeyCtrlD:
 			exit()
 		default:
