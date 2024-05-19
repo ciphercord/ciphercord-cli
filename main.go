@@ -61,11 +61,10 @@ func main() {
 	}
 	defer term.Restore(int(os.Stdin.Fd()), state)
 
-	wg.Add(1)
-	go chatBar()
+	go receiving()
 
 	wg.Add(1)
-	go receiving()
+	go chatBar()
 
 	wg.Wait()
 }
@@ -75,6 +74,7 @@ read:
 	for {
 		prompt()
 
+		// FIXME: this is horribly broken (half of the keys on the keyboard dont register). someone choose a different package.
 		r, key, err := keyboard.GetKey()
 		if err != nil {
 			clsl()
@@ -95,26 +95,26 @@ read:
 			}
 		case keyboard.KeyBackspace, keyboard.KeyBackspace2:
 			if len(input) > 0 && cursorPos > 0 {
-				var newInput []byte
+				var inputBuf []byte
 				for i, r := range input {
 					if i != cursorPos-1 {
-						newInput = append(newInput, r)
+						inputBuf = append(inputBuf, r)
 					}
 				}
-				input = newInput
+				input = inputBuf
 				cursorPos--
 			}
 		case keyboard.KeyDelete:
 			if len(input) > 0 {
-				var newInput []byte
+				var inputBuf []byte
 
 				for i, r := range input {
 					if i != cursorPos {
-						newInput = append(newInput, r)
+						inputBuf = append(inputBuf, r)
 					}
 				}
 
-				input = newInput
+				input = inputBuf
 			}
 		case keyboard.KeyCtrlA:
 			cursorPos = 0
@@ -122,28 +122,27 @@ read:
 			cursorPos = len(input)
 		case keyboard.KeyCtrlU:
 			var cursorPosBuf = cursorPos
-			var newInput []byte
+			var inputBuf []byte
 
 			for i, r := range input {
 				if i >= cursorPosBuf {
-					newInput = append(newInput, r)
+					inputBuf = append(inputBuf, r)
 				} else {
 					cursorPos--
 				}
 			}
 
-			input = newInput
+			input = inputBuf
 		case keyboard.KeyCtrlK:
-			var cursorPosBuf = cursorPos
-			var newInput []byte
+			var inputBuf []byte
 
 			for i, r := range input {
-				if i < cursorPosBuf {
-					newInput = append(newInput, r)
+				if i < cursorPos {
+					inputBuf = append(inputBuf, r)
 				}
 			}
 
-			input = newInput
+			input = inputBuf
 		case keyboard.KeyCtrlW:
 			var from int
 			var to int = cursorPos
@@ -160,15 +159,15 @@ read:
 				}
 			}
 
-			var newInput []byte
+			var inputBuf []byte
 
 			for i, r := range input {
 				if i < from || i >= to {
-					newInput = append(newInput, r)
+					inputBuf = append(inputBuf, r)
 				}
 			}
 
-			input = newInput
+			input = inputBuf
 			cursorPos = from
 		case keyboard.KeyCtrlL:
 			fmt.Print("\x1b[2J")
@@ -179,9 +178,10 @@ read:
 			if key == keyboard.KeySpace || r == 0 {
 				r = ' '
 			}
-			input = append(input, 0)
-			copy(input[cursorPos+1:], input[cursorPos:])
-			input[cursorPos] = byte(r)
+			inputBuf := append(input, 0)
+			copy(inputBuf[cursorPos+1:], inputBuf[cursorPos:])
+			inputBuf[cursorPos] = byte(r)
+			input = inputBuf
 			cursorPos++
 		}
 	}
@@ -206,6 +206,8 @@ func chatBar() {
 
 		s := string(input)
 		input = []byte{}
+		cursorPos = 0
+		prompt()
 
 		if strings.HasPrefix(s, "/") {
 			command(s)
@@ -232,8 +234,6 @@ func chatBar() {
 			prompt()
 			continue
 		}
-
-		prompt()
 	}
 }
 
@@ -260,8 +260,6 @@ func command(s string) {
 }
 
 func receiving() {
-	defer wg.Done()
-
 	for {
 		data := <-ccbot.Messages
 
@@ -294,7 +292,6 @@ func receiving() {
 
 func exit() {
 	// FIXME: Make this better:
-	wg.Done()
 	wg.Done()
 }
 
