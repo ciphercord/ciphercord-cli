@@ -262,7 +262,7 @@ func command(s string) {
 
 func receiving() {
 	for {
-		data := <-ccbot.Messages
+		data := <-ccbot.RawMessages
 
 		emsg, err := ccmsg.Decode(data)
 		if err != nil {
@@ -286,7 +286,11 @@ func receiving() {
 		}
 
 		clsl()
-		fmt.Printf("%s: %s\r\n", umsg.Author, umsg.Content)
+		if umsg.Filename == "" {
+			fmt.Printf("%s: %s\r\n", umsg.Author, umsg.Content)
+		} else {
+			fmt.Printf("%s: %s\r\n", umsg.Author, umsg.Filename)
+		}
 		prompt()
 	}
 }

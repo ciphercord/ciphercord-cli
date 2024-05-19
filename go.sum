@@ -2,6 +2,8 @@ github.com/bwmarrin/discordgo v0.28.1 h1:gXsuo2GBO7NbR6uqmrrBDplPUx2T3nzu775q/Rd
 github.com/bwmarrin/discordgo v0.28.1/go.mod h1:NJZpH+1AfhIcyQsPeuBKsUtYrRnjkyu0kIVMCHkZtRY=
 github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda h1:vbj7G0AdeCmBshluYwRBvoge3ssBa7BMXvYo+Bciy9E=
 github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda/go.mod h1:3OKITPeG7YpZfZlQgZIx+Nwl3K80LuE5pYa+4wj6zpU=
+github.com/ciphercord/gophercord v0.0.0-20240519200417-16faff2037ea h1:onuO5Baqu9Q6x7JAjuV3Mz6ErtQwrWJNLL4m04jXC9s=
+github.com/ciphercord/gophercord v0.0.0-20240519200417-16faff2037ea/go.mod h1:GutqiiIozeXwzyD/rAtbou0dXBikLqvKbcdSpeVWfiM=
 github.com/ciphercord/gophercord v0.0.0-20240519205015-155047955036 h1:Vf8jdloAVm701TU2t6i34A/Ec2PVTgDFenffXrO6eSI=
 github.com/ciphercord/gophercord v0.0.0-20240519205015-155047955036/go.mod h1:3OKITPeG7YpZfZlQgZIx+Nwl3K80LuE5pYa+4wj6zpU=
 github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203 h1:XBBHcIb256gUJtLmY22n99HaZTz+r2Z51xUPi01m3wg=
@@ -9,6 +11,10 @@ github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203/go.mod h1:E1jcSv
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/gorilla/websocket v1.5.1 h1:gmztn0JnHVt9JZquRuzLw3g4wouNVzKL15iLr/zn/QY=
 github.com/gorilla/websocket v1.5.1/go.mod h1:x3kM2JMyaluk02fnUJpQuwD2dCS5NDG2ZHL0uE0tcaY=
+github.com/vmihailenco/msgpack/v5 v5.4.1 h1:cQriyiUvjTwOHg8QZaPihLWeRAAVoCpE00IUPn0Bjt8=
+github.com/vmihailenco/msgpack/v5 v5.4.1/go.mod h1:GaZTsDaehaPpQVyxrf5mtQlH+pc21PIudVV/E3rRQok=
+github.com/vmihailenco/tagparser/v2 v2.0.0 h1:y09buUbR+b5aycVFQs/g70pqKVZNBmxwAhO7/IwNM9g=
+github.com/vmihailenco/tagparser/v2 v2.0.0/go.mod h1:Wri+At7QHww0WTrCBeu4J6bNtoV6mEfg5OIWRZA9qds=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/crypto v0.23.0 h1:dIJU/v2J8Mdglj/8rJ6UUOM3Zc9zLZxVZwwxMooUSAI=
 golang.org/x/crypto v0.23.0/go.mod h1:CKFgDieR+mRhux2Lsu27y0fO304Db0wZe70UKqHu0v8=
