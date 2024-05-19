@@ -271,7 +271,7 @@ func receiving() {
 			prompt()
 			continue
 		}
-		if emsg.Room != room {
+		if emsg.Room != ccmsg.Hash32(room) {
 			continue
 		}
 
