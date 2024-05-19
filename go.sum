@@ -2,6 +2,8 @@ github.com/bwmarrin/discordgo v0.28.1 h1:gXsuo2GBO7NbR6uqmrrBDplPUx2T3nzu775q/Rd
 github.com/bwmarrin/discordgo v0.28.1/go.mod h1:NJZpH+1AfhIcyQsPeuBKsUtYrRnjkyu0kIVMCHkZtRY=
 github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda h1:vbj7G0AdeCmBshluYwRBvoge3ssBa7BMXvYo+Bciy9E=
 github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda/go.mod h1:3OKITPeG7YpZfZlQgZIx+Nwl3K80LuE5pYa+4wj6zpU=
+github.com/ciphercord/gophercord v0.0.0-20240519205015-155047955036 h1:Vf8jdloAVm701TU2t6i34A/Ec2PVTgDFenffXrO6eSI=
+github.com/ciphercord/gophercord v0.0.0-20240519205015-155047955036/go.mod h1:3OKITPeG7YpZfZlQgZIx+Nwl3K80LuE5pYa+4wj6zpU=
 github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203 h1:XBBHcIb256gUJtLmY22n99HaZTz+r2Z51xUPi01m3wg=
 github.com/eiannone/keyboard v0.0.0-20220611211555-0d226195f203/go.mod h1:E1jcSv8FaEny+OP/5k9UxZVw9YFWGj7eI4KR/iOBqCg=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
