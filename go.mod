@@ -1,6 +1,6 @@
 module github.com/ciphercord/ciphercord-cli
 
-go 1.22.2
+go 1.22.3
 
 require (
 	github.com/ciphercord/gophercord v0.0.0-20240517052713-809acbd00cda
