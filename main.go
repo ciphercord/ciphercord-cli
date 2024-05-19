@@ -97,7 +97,7 @@ read:
 				cursorPos++
 			}
 		case keyboard.KeyBackspace, keyboard.KeyBackspace2:
-			if len(input) > 0 {
+			if len(input) > 0 && cursorPos > 0 {
 				var newInput []byte
 				for i, r := range input {
 					if i != cursorPos-1 {
